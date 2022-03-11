@@ -1,33 +1,26 @@
 package com.example;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.Assert.*;
 
 
-@RunWith(MockitoJUnitRunner.class)
 public class CatTest {
-
-    @Mock Feline feline;
-
-
 
     @Test
     public void getSoundCatTest() {
+        Feline feline = new Feline();
         Cat cat = new Cat(feline);
         String expectedSound = "Мяу";
-        assertEquals(expectedSound, cat.getSound());
+        String actualSound = cat.getSound();
+        assertEquals(expectedSound, actualSound);
     }
 
     @Test
     public void getFoodCatTest() throws Exception {
+        Feline feline = new Feline();
         Cat cat = new Cat(feline);
-        Mockito.when(cat.getFood()).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
         List<String> expectedEatMeat = Arrays.asList("Животные", "Птицы", "Рыба");
         List<String> actualEatMeat = cat.getFood();
         assertEquals(expectedEatMeat, actualEatMeat);
